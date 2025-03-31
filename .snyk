@@ -1,18 +1,21 @@
 custom_rules:
-  - id: ' IDOR vulnerability'
-    description: ''
+  - id: ' IDOR vulnerability updated'
+    description: >-
+      Potential IDOR vulnerability Unauthenticated direct object. CWE 639
+      Authorization Bypass Through User Controlled Key
     severity: medium
     cwe:
       - CWE-639
     fix_analysis: >-
-      Avoid exposing sensitive resources directly via user-controlled IDs
-      without verifying ownership. Use user-scoped queries to enforce access
-      control.
-
-
-      Always validate that the authenticated user is authorized to access the
-      requested object before returning or modifying it.
-    rule_code: DataFlowsFrom<HasAnyArg<"id">>
+      Avoid exposing sensitive resources directly via user controlled IDs
+      without verifying ownership. Use user scoped queries to enforce access
+      control. Always validate that the authenticated user is authorized to
+      access the requested object before returning or modifying it.
+    rule_code: |-
+      Taint<
+        HasAnyArg<"id">,
+        PRED:None,
+        CallExpression<"LedgerRegister.find" or "TrustDeposit.find" or "TrustWithdrawal.find">>
     languages:
       - apex
       - c
