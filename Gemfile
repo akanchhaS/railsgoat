@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 
 #don't upgrade
-gem "rails", "6.0.0"
+gem "rails", "7.0.0"
 
 ruby "2.6.5"
 
@@ -16,7 +16,7 @@ gem "jquery-rails"
 gem "minitest"
 gem "powder" # Pow related gem
 gem "pry-rails" # not in dev group in case running via prod/staging @ a training
-gem "puma"
+gem "puma", ">= 5.6.9"
 gem "rails-perftest"
 gem "rake"
 gem "responders" #For Rails 4.2 # LOCKED DOWN
