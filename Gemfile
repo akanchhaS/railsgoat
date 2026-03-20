@@ -7,7 +7,7 @@ gem "rails", "6.0.0"
 ruby "2.6.5"
 
 gem "aruba"
-gem "bcrypt"
+gem "bcrypt", ">= 3.1.22"
 gem "coffee-rails"
 gem "execjs"
 gem "foreman"
